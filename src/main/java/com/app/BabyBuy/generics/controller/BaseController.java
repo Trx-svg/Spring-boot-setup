@@ -2,6 +2,7 @@ package com.app.BabyBuy.generics.controller;
 
 import com.app.BabyBuy.pojo.GlobalApiResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import enums.CRUD;
 import enums.ResponseStatus;
 
 /**
@@ -57,11 +58,12 @@ public class BaseController {
      * @param data
      * @return
      */
-    protected GlobalApiResponse successResponse(String message, Object data) {
+    protected GlobalApiResponse successResponse(String message, CRUD crud, Object data) {
         GlobalApiResponse globalApiResponse = new GlobalApiResponse();
         globalApiResponse.setStatus(API_SUCCESS_STATUS);
         globalApiResponse.setMessage(message);
         globalApiResponse.setData(data);
+        globalApiResponse.setCrud(crud);
         return globalApiResponse;
     }
 
